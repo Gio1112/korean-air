@@ -1,6 +1,7 @@
 // Editable flights array — update manually
 // Each flight: { id, from, to, time, status }
 // status can be: "on-time", "delayed", "ongoing"
+// Time in JS file should be stored in UTC (e.g., 18:30 UTC = 19:30 BST)
 const flights = [
   { id: "KE251", from: "ICN", to: "YYZ", time: "18:30", status: "on-time" },
 ];
@@ -18,15 +19,10 @@ const statusMeta = {
   "ongoing": { cls: "status-ongoing", label: "Ongoing" }
 };
 
-// Convert GMT/UTC string to user's local time, but skip for UK (BST/GMT)
+// Convert UTC "HH:mm" string to user's local time
 function convertToLocalTime(timeStr) {
-  const now = new Date();
-  const tzOffset = now.getTimezoneOffset(); // minutes offset from UTC
-
-  // Skip conversion if user is in UK (GMT = 0, BST = -60)
-  if (tzOffset === 0 || tzOffset === -60) return timeStr;
-
   const [hours, minutes] = timeStr.split(':').map(Number);
+  const now = new Date();
 
   // Create a Date object in UTC using today's date
   const utcDate = new Date(Date.UTC(
@@ -37,6 +33,7 @@ function convertToLocalTime(timeStr) {
     minutes
   ));
 
+  // Convert to user's local time
   const localHours = utcDate.getHours().toString().padStart(2, '0');
   const localMinutes = utcDate.getMinutes().toString().padStart(2, '0');
   return `${localHours}:${localMinutes}`;
@@ -57,7 +54,7 @@ function renderFlights(tab = "scheduled") {
 
   const rows = filtered.map(f => {
     const meta = statusMeta[f.status] || {cls:'', label:f.status};
-    const displayTime = convertToLocalTime(f.time);
+    const displayTime = convertToLocalTime(f.time); // display time in user's local timezone
     return `<tr>
       <td class="flight-no">${f.id}</td>
       <td>${f.from}</td>
@@ -129,5 +126,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   renderMediaTeaser();
   renderMediaListing();
 });
+
 
 
