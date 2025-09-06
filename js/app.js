@@ -3,14 +3,14 @@
 // Each flight: { id, from, to, time, status }
 // status can be: "on-time", "delayed", "ongoing"
 const flights = [
-  { id: "KAL-4772", from: "ICN", to: "LAX", time: "09:40", status: "ongoing" },
+  { id: "KAL-4772", from: "ICN", to: "LAX", time: "09:40", status: "on-time" },
 ];
 
 // Small set of media items for index/media page (editable)
 const mediaItems = [
-  { title: "Korean Air upgrades special dietary meals with enhanced nutrition and flavor", date: "2025-08-01", excerpt: "Korean Air has renewed its selection of special in-flight dietary meals, introducing updated menus for seven meal types ... ", link: "#" },
-  { title: "Sustainability milestone achieved", date: "2025-07-18", excerpt: "Reducing emissions across fleet.", link: "#" },
-  { title: "Korean Air named Favorite Airline in Asia in 2025 Trazees", date: "2025-06-10", excerpt: "Korean Air has been awarded 'Favourite Airline in Asia 2025'.", link: "#" }
+  { title: "Korean Air upgrades special dietary meals with enhanced nutrition and flavor", date: "2025-09-04", excerpt: "Korean Air has renewed its selection of special in-flight dietary meals. ", link: "#" },
+  { title: "Korean Air unveils newly renovated lounges at Incheon Airport", date: "2025-07-18", excerpt: "Korean Air has completed phase one of its lounge renovation project at Incheon Intl.", link: "#" },
+  { title: "Korean Air named Favorite Airline in Asia in 2025 Trazees", date: "2025-08-22", excerpt: "Korean Air has been awarded 'Favourite Airline in Asia 2025'.", link: "#" }
 ];
 
 const statusMeta = {
