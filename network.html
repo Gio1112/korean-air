@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Network — Korean Air (Classic)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="assets/logo-old.svg" alt="logo" class="brand-logo" /></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="network.html" class="nav-link active">Our Network</a>
+        <a href="media.html" class="nav-link">Media</a>
+      </nav>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="network-hero">
+      <h1>Our Network</h1>
+      <p>We connect you to the world. Below is a simple visual placeholder for routes — replace with a map/SVG if you have one.</p>
+    </section>
+
+    <section class="network-map card">
+      <div class="map-graphic">
+        <!-- simple stylized map placeholder -->
+        <svg width="100%" height="220" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" rx="12" fill="#f7fbfe"/>
+          <g transform="translate(40,30)" fill="#0b3b60" font-family="Noto Sans KR, sans-serif">
+            <text x="0" y="20" font-size="18" font-weight="700">Featured Hubs</text>
+            <text x="0" y="50" font-size="14">• Incheon (ICN)</text>
+            <text x="0" y="74" font-size="14">• Gimpo (GMP)</text>
+            <text x="0" y="98" font-size="14">• Los Angeles (LAX)</text>
+            <text x="0" y="122" font-size="14">• Tokyo (NRT)</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/logo-old.svg" alt="Korean Air (old)" class="footer-logo" />
+        <p>© <span id="year2"></span> Korean Air — Classic frontend demo</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="media.html">Media</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year2').textContent = new Date().getFullYear();</script>
+</body>
+</html>

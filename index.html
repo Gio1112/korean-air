@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Korean Air — Classic (Styled Demo)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Korean Air home">
+        <img src="assets/logo-old.svg" alt="Korean Air logo" class="brand-logo" />
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="network.html" class="nav-link">Our Network</a>
+        <a href="media.html" class="nav-link">Media</a>
+      </nav>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-left">
+          <h1>Welcome aboard — Classic Korean Air</h1>
+          <p class="lead">Smooth travel, familiar branding. This is a frontend-only demo using your old logo. Edit flights in <code>js/app.js</code>.</p>
+          <a class="btn primary" href="#flights">View Flights</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="flights" class="flights container">
+      <h2>Scheduled & Ongoing Flights</h2>
+
+      <div class="tabs" role="tablist" aria-label="Flight tabs">
+        <button class="tab-btn active" data-tab="scheduled" role="tab" aria-selected="true">Scheduled</button>
+        <button class="tab-btn" data-tab="ongoing" role="tab" aria-selected="false">Ongoing</button>
+      </div>
+
+      <div id="tab-content" class="tab-content" aria-live="polite">
+        <!-- injected by js -->
+      </div>
+
+      <div class="flights-note">
+        <small>Edit the flights array in <code>js/app.js</code> to add / update flights. This is static frontend-only.</small>
+      </div>
+    </section>
+
+    <section class="container media-teaser">
+      <h3>Latest Media</h3>
+      <div id="media-cards" class="cards-grid">
+        <!-- injected by js -->
+      </div>
+      <p class="more"><a href="media.html" class="link">View all media →</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-old.svg" alt="Korean Air logo" class="footer-logo" />
+        <p>© <span id="year"></span> Korean Air — Classic frontend demo</p>
+      </div>
+      <div class="footer-links">
+        <a href="network.html">Our Network</a>
+        <a href="media.html">Media</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
