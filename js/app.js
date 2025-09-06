@@ -18,12 +18,17 @@ const statusMeta = {
   "ongoing": { cls: "status-ongoing", label: "Ongoing" }
 };
 
-// Convert a GMT/UTC "HH:mm" string to the user's local time
+// Convert GMT/UTC string to user's local time, but skip for UK (BST/GMT)
 function convertToLocalTime(timeStr) {
+  const now = new Date();
+  const tzOffset = now.getTimezoneOffset(); // minutes offset from UTC
+
+  // Skip conversion if user is in UK (GMT = 0, BST = -60)
+  if (tzOffset === 0 || tzOffset === -60) return timeStr;
+
   const [hours, minutes] = timeStr.split(':').map(Number);
 
   // Create a Date object in UTC using today's date
-  const now = new Date();
   const utcDate = new Date(Date.UTC(
     now.getUTCFullYear(),
     now.getUTCMonth(),
@@ -32,7 +37,6 @@ function convertToLocalTime(timeStr) {
     minutes
   ));
 
-  // Format to HH:mm in user's local time
   const localHours = utcDate.getHours().toString().padStart(2, '0');
   const localMinutes = utcDate.getMinutes().toString().padStart(2, '0');
   return `${localHours}:${localMinutes}`;
@@ -53,12 +57,12 @@ function renderFlights(tab = "scheduled") {
 
   const rows = filtered.map(f => {
     const meta = statusMeta[f.status] || {cls:'', label:f.status};
-    const localTime = convertToLocalTime(f.time); // convert to local time
+    const displayTime = convertToLocalTime(f.time);
     return `<tr>
       <td class="flight-no">${f.id}</td>
       <td>${f.from}</td>
       <td>${f.to}</td>
-      <td>${localTime}</td>
+      <td>${displayTime}</td>
       <td><span class="status-pill ${meta.cls}">${meta.label}</span></td>
     </tr>`;
   }).join('');
@@ -125,4 +129,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
   renderMediaTeaser();
   renderMediaListing();
 });
+
 
