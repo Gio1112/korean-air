@@ -1,4 +1,3 @@
-
 // Editable flights array — update manually
 // Each flight: { id, from, to, time, status }
 // status can be: "on-time", "delayed", "ongoing"
@@ -19,11 +18,33 @@ const statusMeta = {
   "ongoing": { cls: "status-ongoing", label: "Ongoing" }
 };
 
+// Convert a GMT/UTC "HH:mm" string to the user's local time
+function convertToLocalTime(timeStr) {
+  const [hours, minutes] = timeStr.split(':').map(Number);
+
+  // Create a Date object in UTC using today's date
+  const now = new Date();
+  const utcDate = new Date(Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    hours,
+    minutes
+  ));
+
+  // Format to HH:mm in user's local time
+  const localHours = utcDate.getHours().toString().padStart(2, '0');
+  const localMinutes = utcDate.getMinutes().toString().padStart(2, '0');
+  return `${localHours}:${localMinutes}`;
+}
+
 function renderFlights(tab = "scheduled") {
   const container = document.getElementById('tab-content');
   if (!container) return;
 
-  const filtered = (tab === 'ongoing') ? flights.filter(f=>f.status==='ongoing') : flights.filter(f=>f.status!=='ongoing');
+  const filtered = (tab === 'ongoing') 
+    ? flights.filter(f => f.status === 'ongoing') 
+    : flights.filter(f => f.status !== 'ongoing');
 
   if (filtered.length === 0) {
     container.innerHTML = `<div class="card"><p>No ${tab} flights available.</p></div>`;
@@ -32,11 +53,12 @@ function renderFlights(tab = "scheduled") {
 
   const rows = filtered.map(f => {
     const meta = statusMeta[f.status] || {cls:'', label:f.status};
+    const localTime = convertToLocalTime(f.time); // convert to local time
     return `<tr>
       <td class="flight-no">${f.id}</td>
       <td>${f.from}</td>
       <td>${f.to}</td>
-      <td>${f.time}</td>
+      <td>${localTime}</td>
       <td><span class="status-pill ${meta.cls}">${meta.label}</span></td>
     </tr>`;
   }).join('');
@@ -103,3 +125,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
   renderMediaTeaser();
   renderMediaListing();
 });
+
