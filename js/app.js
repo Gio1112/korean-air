@@ -8,9 +8,9 @@ const flights = [
 
 // Small set of media items for index/media page (editable)
 const mediaItems = [
-  { title: "Korean Air starts new seasonal route", date: "2025-08-01", excerpt: "New flights to XYZ announced.", link: "#" },
+  { title: "Korean Air upgrades special dietary meals with enhanced nutrition and flavor", date: "2025-08-01", excerpt: "Korean Air has renewed its selection of special in-flight dietary meals, introducing updated menus for seven meal types ... ", link: "#" },
   { title: "Sustainability milestone achieved", date: "2025-07-18", excerpt: "Reducing emissions across fleet.", link: "#" },
-  { title: "In-flight experience refreshed", date: "2025-06-10", excerpt: "Improved meals and entertainment.", link: "#" }
+  { title: "Korean Air named Favorite Airline in Asia in 2025 Trazees", date: "2025-06-10", excerpt: "Korean Air has been awarded 'Favourite Airline in Asia 2025'.", link: "#" }
 ];
 
 const statusMeta = {
