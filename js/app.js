@@ -3,10 +3,7 @@
 // Each flight: { id, from, to, time, status }
 // status can be: "on-time", "delayed", "ongoing"
 const flights = [
-  { id: "KE123", from: "ICN", to: "LAX", time: "09:40", status: "ongoing" },
-  { id: "KE456", from: "ICN", to: "NRT", time: "11:30", status: "on-time" },
-  { id: "KE789", from: "ICN", to: "SYD", time: "22:00", status: "delayed" },
-  { id: "KE321", from: "ICN", to: "JFK", time: "13:15", status: "on-time" }
+  { id: "KAL-4772", from: "ICN", to: "LAX", time: "09:40", status: "ongoing" },
 ];
 
 // Small set of media items for index/media page (editable)
