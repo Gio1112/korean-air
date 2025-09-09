@@ -2,8 +2,9 @@
 // Each flight: { id, from, to, time, status }
 // status can be: "on-time", "delayed", "ongoing"
 // Time in JS file should be stored in UTC (e.g., 18:30 UTC = 19:30 BST)
+// id: "KE251", from: "ICN", to: "YYZ", time: "18:30", status: "on-time"
 const flights = [
-  { // id: "KE251", from: "ICN", to: "YYZ", time: "18:30", status: "on-time" },
+  {  },
 ];
 
 // Small set of media items for index/media page (editable)
